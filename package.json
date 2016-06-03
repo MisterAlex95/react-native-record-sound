@@ -1,9 +1,9 @@
 {
-  "name": "react-native-recorder",
+  "name": "react-native-record-sound",
   "version": "0.0.1",
-  "description": "Android recorder for React Native",
-  "keywords": ["react-native", "android", "recorder"],
-  "homepage": "https://github.com/MisterAlex95/react-native-recorder",
+  "description": "Android record sound for React Native",
+  "keywords": ["react-native", "android", "record", "sound"],
+  "homepage": "https://github.com/MisterAlex95/react-native-record-sound",
   "author": "Alex Dana",
   "files": [
     "android/",
@@ -11,6 +11,6 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MisterAlex/react-native-recorder.git"
+    "url": "git+https://github.com/MisterAlex/react-native-record-sound.git"
   },
 }

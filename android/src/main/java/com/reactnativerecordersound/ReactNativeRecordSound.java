@@ -1,4 +1,4 @@
-package com.reactnativerecorder;
+package com.reactnativerecordsound;
 
 import android.media.MediaRecorder;
 import java.io.IOException;
@@ -11,18 +11,18 @@ import com.facebook.react.bridge.ReactMethod;
 
 import java.util.Map;
 
-public class ReactNativeRecorder extends ReactContextBaseJavaModule {
+public class ReactNativeRecordSound extends ReactContextBaseJavaModule {
 
   private static final String LOG_TAG = "RecordModule";
   private MediaRecorder mRecorder = null;
 
-  public ReactNativeRecorder(ReactApplicationContext reactContext) {
+  public ReactNativeRecordSound(ReactApplicationContext reactContext) {
     super(reactContext);
   }
 
   @Override
   public String getName() {
-    return "ReactNativeRecorder";
+    return "ReactNativeRecordSound";
   }
 
   @ReactMethod

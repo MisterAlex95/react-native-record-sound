@@ -1,2 +1,2 @@
-# react-native-recoder
-react-native-recoder
+# react-native-record-sound
+react-native-record-sound
