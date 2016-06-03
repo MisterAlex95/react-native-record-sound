@@ -45,7 +45,7 @@ public class ReactNativeRecordSound extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  private void stopRecording() {
+  public void stopRecord() {
     if (mRecorder != null) {
       mRecorder.stop();
       mRecorder.release();
