@@ -1,6 +1,6 @@
 {
   "name": "react-native-record-sound",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "record sound from react native on android",
   "main": "index.android.js",
   "scripts": {
