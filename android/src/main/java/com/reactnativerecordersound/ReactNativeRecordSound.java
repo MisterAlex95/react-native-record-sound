@@ -28,19 +28,21 @@ public class ReactNativeRecordSound extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void startRecord(String filename, Callback res) {
-        mRecorder = new MediaRecorder();
-        mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        mRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-        mRecorder.setOutputFile(filename);
-        mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+    if (mRecorder == null) {
+      mRecorder = new MediaRecorder();
+      mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+      mRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+      mRecorder.setOutputFile(filename);
+      mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
 
-        try {
-            mRecorder.prepare();
-        } catch (IOException e) {
-            res.invoke(e.toString());
-        }
-        mRecorder.start();
+      try {
+        mRecorder.prepare();
+      } catch (IOException e) {
+        res.invoke(LOG_TAG + e.toString());
+      }
+      mRecorder.start();
     }
+  }
 
   @ReactMethod
   private void stopRecording() {
