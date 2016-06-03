@@ -1,0 +1,12 @@
+{
+  "name": "react-native-recorder",
+  "version": "0.0.1",
+  "description": "Android recorder for React Native",
+  "keywords": ["react-native", "android", "recorder"],
+  "homepage": "https://github.com/MisterAlex95/react-native-recorder",
+  "author": "Alex Dana",
+  "files": [
+    "android/",
+    "ReactNativeRecorder.js"
+  ]
+}
