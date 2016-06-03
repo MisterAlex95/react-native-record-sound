@@ -8,6 +8,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.Callback;
 
 import java.util.Map;
 
@@ -26,7 +27,7 @@ public class ReactNativeRecordSound extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void startRecord(String filename) {
+  public void startRecord(String filename, Callback res) {
         mRecorder = new MediaRecorder();
         mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         mRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
@@ -36,9 +37,8 @@ public class ReactNativeRecordSound extends ReactContextBaseJavaModule {
         try {
             mRecorder.prepare();
         } catch (IOException e) {
-              //oups
+            res.invoke(e.toString());
         }
-
         mRecorder.start();
     }
 

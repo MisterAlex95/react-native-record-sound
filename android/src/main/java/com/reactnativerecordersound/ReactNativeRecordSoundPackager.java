@@ -9,18 +9,20 @@ import com.facebook.react.bridge.JavaScriptModule;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.uimanager.ViewManager;
 
-import com.reactnativerecorder.ReactNativeRecordSound;
+import com.reactnativerecordsound.ReactNativeRecordSound;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import android.os.Environment;
+
 public class ReactNativeRecordSoundPackager implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
-        modules.add(new ReactNativeRecorder(reactContext));
+        modules.add(new ReactNativeRecordSound(reactContext));
         return modules;
     }
 
