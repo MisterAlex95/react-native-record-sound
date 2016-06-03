@@ -7,6 +7,10 @@
   "author": "Alex Dana",
   "files": [
     "android/",
-    "ReactNativeRecorder.js"
-  ]
+    "index.android.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MisterAlex/react-native-recorder.git"
+  },
 }
