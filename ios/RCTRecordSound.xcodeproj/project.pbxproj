@@ -11,16 +11,6 @@
 		FA40C5081D085B5900EF80D7 /* RCTRecordSound.m in Sources */ = {isa = PBXBuildFile; fileRef = FA40C5071D085B5900EF80D7 /* RCTRecordSound.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		FAEBFDAF1D09759E00BE25BC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAEBFDAB1D09759E00BE25BC /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 83CBBA2E1A601D0E00E9B192;
-			remoteInfo = React;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		FA40C5001D085B5900EF80D7 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -38,7 +28,6 @@
 		FA40C5021D085B5900EF80D7 /* libRCTRecordSound.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTRecordSound.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA40C5051D085B5900EF80D7 /* RCTRecordSound.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTRecordSound.h; sourceTree = "<group>"; };
 		FA40C5071D085B5900EF80D7 /* RCTRecordSound.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTRecordSound.m; sourceTree = "<group>"; };
-		FAEBFDAB1D09759E00BE25BC /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +44,6 @@
 		FA40C4F91D085B5900EF80D7 = {
 			isa = PBXGroup;
 			children = (
-				FAEBFDA21D0974CF00BE25BC /* Libarabries */,
 				FA40C5041D085B5900EF80D7 /* RCTRecordSound */,
 				FA40C5031D085B5900EF80D7 /* Products */,
 			);
@@ -76,22 +64,6 @@
 				FA40C5071D085B5900EF80D7 /* RCTRecordSound.m */,
 			);
 			path = RCTRecordSound;
-			sourceTree = "<group>";
-		};
-		FAEBFDA21D0974CF00BE25BC /* Libarabries */ = {
-			isa = PBXGroup;
-			children = (
-				FAEBFDAB1D09759E00BE25BC /* React.xcodeproj */,
-			);
-			name = Libarabries;
-			sourceTree = "<group>";
-		};
-		FAEBFDAC1D09759E00BE25BC /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FAEBFDB01D09759E00BE25BC /* libReact.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,28 +121,12 @@
 			mainGroup = FA40C4F91D085B5900EF80D7;
 			productRefGroup = FA40C5031D085B5900EF80D7 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = FAEBFDAC1D09759E00BE25BC /* Products */;
-					ProjectRef = FAEBFDAB1D09759E00BE25BC /* React.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				FA40C5011D085B5900EF80D7 /* RCTRecordSound */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		FAEBFDB01D09759E00BE25BC /* libReact.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libReact.a;
-			remoteRef = FAEBFDAF1D09759E00BE25BC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FA40C4FE1D085B5900EF80D7 /* Sources */ = {
@@ -270,7 +226,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native/React/**";
+				HEADER_SEARCH_PATHS = (
+					"$(inherite)",
+					"$(SRCROOT)/../../../React/**",
+					"$(SRCROOT)/../../react-native/React/**",
+				);
 				LD_RUNPATH_SEARCH_PATHS = "$(SRCROOT)/../../node_modules/react-native/React/**";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -283,7 +243,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native/React/**";
+				HEADER_SEARCH_PATHS = (
+					"$(inherite)",
+					"$(SRCROOT)/../../../React/**",
+					"$(SRCROOT)/../../react-native/React/**",
+				);
 				LD_RUNPATH_SEARCH_PATHS = "$(SRCROOT)/../../node_modules/react-native/React/**";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
