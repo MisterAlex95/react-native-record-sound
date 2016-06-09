@@ -36,7 +36,7 @@ RCT_EXPORT_METHOD(startRecord:(NSString *)filename : (RCTResponseSenderBlock)cal
                         error:nil];
 
     _audioRecord = [[AVAudioRecorder alloc]
-                    initWithURL: filename
+                    initWithString: filename
                     settings:recordSettings
                     error: &error];
 
