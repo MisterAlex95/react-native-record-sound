@@ -1,19 +1,19 @@
 {
   "name": "react-native-record-sound",
-  "version": "1.1.5",
-  "description": "record sound from react native on android",
-  "main": "index.android.js",
+  "version": "1.1.6",
+  "description": "record sound from react native",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MisterAlex95/react-native-recoder.git"
+    "url": "git+https://github.com/MisterAlex95/react-native-record-sound.git"
   },
   "author": "MisterAlex95 <alex.dana@epitech.eu>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MisterAlex95/react-native-recoder/issues"
+    "url": "https://github.com/MisterAlex95/react-native-record-sound/issues"
   },
-  "homepage": "https://github.com/MisterAlex95/react-native-recoder#readme"
+  "homepage": "https://github.com/MisterAlex95/react-native-record-sound#readme"
 }
