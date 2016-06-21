@@ -31,9 +31,11 @@ public class ReactNativeRecordSound extends ReactContextBaseJavaModule {
     if (mRecorder == null) {
       mRecorder = new MediaRecorder();
       mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-      mRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+      mRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
+      mRecorder.setAudioChannels(1); // Mono 1 Stereo 2
       mRecorder.setOutputFile(filename);
-      mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+      mRecorder.setAudioEncodingBitRate(8000);
+      mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
 
       try {
         mRecorder.prepare();
