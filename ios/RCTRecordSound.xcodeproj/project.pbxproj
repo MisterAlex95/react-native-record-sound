@@ -84,8 +84,8 @@
 			buildConfigurationList = FA40C50B1D085B5900EF80D7 /* Build configuration list for PBXNativeTarget "RCTRecordSound" */;
 			buildPhases = (
 				FA40C4FE1D085B5900EF80D7 /* Sources */,
-				FA40C4FF1D085B5900EF80D7 /* Frameworks */,
 				FA40C5001D085B5900EF80D7 /* CopyFiles */,
+				FA40C4FF1D085B5900EF80D7 /* Frameworks */,
 				FA4E3A121D08683D00B5A3F9 /* Headers */,
 			);
 			buildRules = (
@@ -230,12 +230,17 @@
 					"$(inherite)",
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
+					"$(SRCROOT)/node_modules/react-native/Libraries/**",
+					"$(SRCROOT)/node_modules/**",
+					"$(SRCROOT)/../../node_modules/react-native/React/**/**",
+					"$(SRCROOT)/../../React/**/**",
 				);
 				LD_RUNPATH_SEARCH_PATHS = "$(SRCROOT)/../../node_modules/react-native/React/**";
+				LIBRARY_SEARCH_PATHS = "$(inherite)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/node_modules/react-native/React/**";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -247,12 +252,17 @@
 					"$(inherite)",
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
+					"$(SRCROOT)/node_modules/**",
+					"$(SRCROOT)/node_modules/react-native/Libraries/**",
+					"$(SRCROOT)/../../node_modules/react-native/React/**/**",
+					"$(SRCROOT)/../../React/**/**",
 				);
 				LD_RUNPATH_SEARCH_PATHS = "$(SRCROOT)/../../node_modules/react-native/React/**";
+				LIBRARY_SEARCH_PATHS = "$(inherite)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/node_modules/react-native/React/**";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};

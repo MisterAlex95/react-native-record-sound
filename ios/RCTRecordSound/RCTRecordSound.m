@@ -21,15 +21,34 @@
 RCT_EXPORT_MODULE();
 
 
-RCT_EXPORT_METHOD(startRecord:(NSURL *)filename : (RCTResponseSenderBlock)callback) {
-    NSNumber *_audioEncoding = [NSNumber numberWithInt:kAudioFormatMPEGLayer3];
+RCT_EXPORT_METHOD(startRecord:(NSString *)filename : (RCTResponseSenderBlock)callback) {
+    
+    AVAudioSessionRecordPermission permissionStatus = [[AVAudioSession sharedInstance] recordPermission];
+    switch (permissionStatus) {
+        case AVAudioSessionRecordPermissionUndetermined:
+            NSLog(@("undetermined"));
+            break;
+        case AVAudioSessionRecordPermissionDenied:
+            NSLog(@("denied"));
+            break;
+        case AVAudioSessionRecordPermissionGranted:
+            NSLog(@("granted"));
+            break;
+        default:
+            NSLog(@("Error checking device authorization status."));
+            break;
+    }
+
+    NSNumber *_audioEncoding = [NSNumber numberWithInt:kAudioFormatMPEG4AAC];
     NSNumber *_audioChannels = [NSNumber numberWithInt:1];
     NSNumber *_audioSampleRate = [NSNumber numberWithFloat:16000.0];
-    NSNumber *_audioQuality = [NSNumber numberWithInt:AVAudioQualityHigh];
+    NSNumber *_audioQuality = [NSNumber numberWithInt:AVAudioQualityMax];
+    NSNumber *_audioBiteRate = [NSNumber numberWithInt:16];
     
     recordSettings = [NSDictionary dictionaryWithObjectsAndKeys:
                       _audioQuality, AVEncoderAudioQualityKey,
                       _audioEncoding, AVFormatIDKey,
+                      _audioBiteRate, AVEncoderBitRateKey,
                       _audioChannels, AVNumberOfChannelsKey,
                       _audioSampleRate, AVSampleRateKey,
                       nil];
@@ -39,9 +58,11 @@ RCT_EXPORT_METHOD(startRecord:(NSURL *)filename : (RCTResponseSenderBlock)callba
     AVAudioSession* _recordSession = [AVAudioSession sharedInstance];
     [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord
                         error:nil];
-
+    
+    NSURL *soundFileURL = [NSURL fileURLWithPath:filename];
+    
     _audioRecord = [[AVAudioRecorder alloc]
-                    initWithURL: filename
+                    initWithURL: soundFileURL
                     settings:recordSettings
                     error: &error];
 
@@ -50,7 +71,7 @@ RCT_EXPORT_METHOD(startRecord:(NSURL *)filename : (RCTResponseSenderBlock)callba
     } else {
         [_audioRecord prepareToRecord];
     }
-
+    
     if (!_audioRecord.recording) {
         [_audioRecord record];
     }
