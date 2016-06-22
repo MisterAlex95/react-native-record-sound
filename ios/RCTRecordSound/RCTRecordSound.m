@@ -22,7 +22,7 @@ RCT_EXPORT_MODULE();
 
 
 RCT_EXPORT_METHOD(startRecord:(NSString *)filename : (RCTResponseSenderBlock)callback) {
-    
+
     AVAudioSessionRecordPermission permissionStatus = [[AVAudioSession sharedInstance] recordPermission];
     switch (permissionStatus) {
         case AVAudioSessionRecordPermissionUndetermined:
@@ -44,7 +44,7 @@ RCT_EXPORT_METHOD(startRecord:(NSString *)filename : (RCTResponseSenderBlock)cal
     NSNumber *_audioSampleRate = [NSNumber numberWithFloat:16000.0];
     NSNumber *_audioQuality = [NSNumber numberWithInt:AVAudioQualityMax];
     NSNumber *_audioBiteRate = [NSNumber numberWithInt:16];
-    
+
     recordSettings = [NSDictionary dictionaryWithObjectsAndKeys:
                       _audioQuality, AVEncoderAudioQualityKey,
                       _audioEncoding, AVFormatIDKey,
@@ -52,15 +52,15 @@ RCT_EXPORT_METHOD(startRecord:(NSString *)filename : (RCTResponseSenderBlock)cal
                       _audioChannels, AVNumberOfChannelsKey,
                       _audioSampleRate, AVSampleRateKey,
                       nil];
-    
+
     NSError* error = nil;
 
     AVAudioSession* _recordSession = [AVAudioSession sharedInstance];
     [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord
                         error:nil];
-    
+
     NSURL *soundFileURL = [NSURL fileURLWithPath:filename];
-    
+
     _audioRecord = [[AVAudioRecorder alloc]
                     initWithURL: soundFileURL
                     settings:recordSettings
@@ -71,14 +71,14 @@ RCT_EXPORT_METHOD(startRecord:(NSString *)filename : (RCTResponseSenderBlock)cal
     } else {
         [_audioRecord prepareToRecord];
     }
-    
-    if (!_audioRecord.recording) {
+
+    if (_audioRecord.recording != false) {
         [_audioRecord record];
     }
 }
 
 RCT_EXPORT_METHOD(stopRecord) {
-    if (_audioRecord.recording) {
+    if (_audioRecord.recording == true) {
       [_audioRecord stop];
     }
 }
