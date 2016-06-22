@@ -43,12 +43,10 @@ RCT_EXPORT_METHOD(startRecord:(NSString *)filename : (RCTResponseSenderBlock)cal
     NSNumber *_audioChannels = [NSNumber numberWithInt:1];
     NSNumber *_audioSampleRate = [NSNumber numberWithFloat:16000.0];
     NSNumber *_audioQuality = [NSNumber numberWithInt:AVAudioQualityMax];
-    NSNumber *_audioBiteRate = [NSNumber numberWithInt:16];
 
     recordSettings = [NSDictionary dictionaryWithObjectsAndKeys:
                       _audioQuality, AVEncoderAudioQualityKey,
                       _audioEncoding, AVFormatIDKey,
-                      _audioBiteRate, AVEncoderBitRateKey,
                       _audioChannels, AVNumberOfChannelsKey,
                       _audioSampleRate, AVSampleRateKey,
                       nil];
@@ -67,18 +65,21 @@ RCT_EXPORT_METHOD(startRecord:(NSString *)filename : (RCTResponseSenderBlock)cal
                     error: &error];
 
     if (error) {
-        ;
+      NSLog(@"Error: %@ %d %@", [error domain], [error code], [[error userInfo] description]);
+      return;
     } else {
         [_audioRecord prepareToRecord];
     }
 
     if (_audioRecord.recording != false) {
         [_audioRecord record];
+        NSLog(@"Error: begin record");
     }
 }
 
 RCT_EXPORT_METHOD(stopRecord) {
     if (_audioRecord.recording == true) {
+      NSLog(@"Error: Stop record");
       [_audioRecord stop];
     }
 }

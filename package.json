@@ -1,7 +1,7 @@
 {
   "name": "react-native-record-sound",
-  "version": "1.2.0",
-  "description": "record sound from react native",
+  "version": "1.2.2",
+  "description": "record sound in mp4 from react native for IOS and Android",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
