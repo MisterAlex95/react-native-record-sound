@@ -45,8 +45,16 @@ public class MainActivity extends ReactActivity {
 }
 ```
 
-## Example
+## How to use
 
 ```javascript
- TO DO
+import Record from 'react-native-record-sound';
+let isRecording = false;
+...
+recordSound() {
+  if (isRecording === false)
+    Record.startRecord(path + 'sound.mp4');
+  else   
+    Record.stopRecord();  
+}
 ```
