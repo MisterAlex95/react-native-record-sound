@@ -71,15 +71,15 @@ RCT_EXPORT_METHOD(startRecord:(NSString *)filename : (RCTResponseSenderBlock)cal
         [_audioRecord prepareToRecord];
     }
 
-    if (_audioRecord.recording != false) {
+    if (_audioRecord.recording == false) {
         [_audioRecord record];
-        NSLog(@"Error: begin record");
+        NSLog(@"AudioRecord: Begin record");
     }
 }
 
 RCT_EXPORT_METHOD(stopRecord) {
     if (_audioRecord.recording == true) {
-      NSLog(@"Error: Stop record");
+      NSLog(@"AudioRecord: Stop record");
       [_audioRecord stop];
     }
 }
