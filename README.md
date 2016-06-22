@@ -55,6 +55,7 @@ recordSound() {
   if (isRecording === false)
     Record.startRecord(path + 'sound.mp4');
   else   
-    Record.stopRecord();  
+    Record.stopRecord();
+  isRecording = !isRecording;
 }
 ```
