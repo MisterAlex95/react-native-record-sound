@@ -1,6 +1,10 @@
 {
   "name": "react-native-record-sound",
+<<<<<<< HEAD
   "version": “1.2.5”,
+=======
+  "version": "1.2.4",
+>>>>>>> 872582c0ff26bde1d8fbb9546bc224b0680283fe
   "description": "record sound in mp4 from react native for IOS and Android",
   "main": "index.js",
   "scripts": {
