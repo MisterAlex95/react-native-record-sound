@@ -39,23 +39,21 @@ RCT_EXPORT_METHOD(startRecord:(NSString *)filename : (RCTResponseSenderBlock)cal
             break;
     }
 
+    NSNumber *_audioQuality = [NSNumber numberWithInt:AVAudioQualityHigh];
     NSNumber *_audioEncoding = [NSNumber numberWithInt:kAudioFormatMPEG4AAC];
     NSNumber *_audioChannels = [NSNumber numberWithInt:1];
     NSNumber *_audioSampleRate = [NSNumber numberWithFloat:16000.0];
-    NSNumber *_audioQuality = [NSNumber numberWithInt:AVAudioQualityMin];
-//    NSNumber *_audioBiteRate = [NSNumber numberWithInt:16];
 
     recordSettings = [NSDictionary dictionaryWithObjectsAndKeys:
                       _audioQuality, AVEncoderAudioQualityKey,
                       _audioEncoding, AVFormatIDKey,
-//                      _audioBiteRate, AVEncoderBitRateKey,
                       _audioChannels, AVNumberOfChannelsKey,
                       _audioSampleRate, AVSampleRateKey,
                       nil];
 
     NSError* err = nil;
 
-    AVAudioSession* _recordSession = [AVAudioSession sharedInstance];
+    AVAudioSession* audioSession = [AVAudioSession sharedInstance];
     [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord
                         error:nil];
 
@@ -65,6 +63,7 @@ RCT_EXPORT_METHOD(startRecord:(NSString *)filename : (RCTResponseSenderBlock)cal
                     initWithURL: soundFileURL
                     settings:recordSettings
                     error: &err];
+    _audioRecord.delegate = self;
 
     if (err) {
         NSLog(@"audioSession: %@ %d %@", [err domain], [err code], [[err userInfo] description]);
@@ -74,15 +73,17 @@ RCT_EXPORT_METHOD(startRecord:(NSString *)filename : (RCTResponseSenderBlock)cal
         NSLog(@"audioSession: launch record");
     }
 
-    if (_audioRecord.recording == false) {
+    if (!_audioRecord.recording) {
         [_audioRecord record];
+        [audioSession setActive:YES error:nil];
     }
 }
 
 RCT_EXPORT_METHOD(stopRecord) {
-    if (_audioRecord.recording == true) {
+    if (_audioRecord.recording) {
         NSLog(@"audioSession: stop record");
         [_audioRecord stop];
+        [audioSession setActive:NO error:nil];
     }
 }
 
