@@ -53,7 +53,7 @@ let isRecording = false;
 ...
 recordSound() {
   if (isRecording === false)
-    Record.startRecord(path + 'sound.mp4');
+    Record.startRecord(path + 'sound.mp4', (err) => {console.log(err)});
   else   
     Record.stopRecord();
   isRecording = !isRecording;
