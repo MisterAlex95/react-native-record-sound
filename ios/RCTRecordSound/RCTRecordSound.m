@@ -7,9 +7,9 @@
 //
 
 #import "RCTRecordSound.h"
-#import "RCTConvert.h"
-#import "RCTBridge.h"
-#import "RCTEventDispatcher.h"
+#import <React/RCTConvert.h>
+#import <React/RCTBridge.h>
+#import <React/RCTEventDispatcher.h>
 #import <AVFoundation/AVFoundation.h>
 
 @implementation ReactNativeRecordSound {
