@@ -9,7 +9,7 @@
 // RecordSound.h
 // add AVFoundation Framework in Xcode
 
-#import "RCTBridge.h"
+#import <React/RCTBridge.h>
 #import <AVFoundation/AVFoundation.h>
 
 @interface ReactNativeRecordSound : NSObject <RCTBridgeModule ,AVAudioRecorderDelegate>
