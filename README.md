@@ -1,5 +1,7 @@
 # react-native-record-sound
 
+[DEPRECATED]: I have to update the ObjC and Java code. And update RN version. 
+
 ## Installation
 
 * Install the module
